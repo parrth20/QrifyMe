@@ -1,7 +1,7 @@
 import Landingimg from '../assets/Landing1.png'
 import Landingimg2 from '../assets/Landing2.png.png'
 import Landingimg3 from '../assets/Landing3.png'
-
+import fevicon from '../assets/favicon.png'
 
 
 export const LandingPage =()=>{
