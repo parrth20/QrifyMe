@@ -8,12 +8,12 @@ import * as QRCodeReact from 'qrcode.react';
 const QRCode = QRCodeReact.default;
 
 class Dashboard extends Component {
-  // Moved the constructor here and merged the state definitions.
   constructor(props) {
     super(props);
     this.state = {
       token: '',
-      showQRModal: false,
+      showQRModal: false, // existing modal for in-app QR code display
+      showQRGenerator: false, // new state to show the Django QR generator
       openProductModal: false,
       openProductEditModal: false,
       id: '',
@@ -30,8 +30,14 @@ class Dashboard extends Component {
     };
   }
 
+  // Toggle for the in-app QR code modal (if needed)
   toggleQRModal = () => {
     this.setState((prev) => ({ showQRModal: !prev.showQRModal }));
+  };
+
+  // New toggle for the Django QR generator modal
+  toggleQRGenerator = () => {
+    this.setState((prev) => ({ showQRGenerator: !prev.showQRGenerator }));
   };
 
   componentDidMount = () => {
@@ -222,6 +228,8 @@ class Dashboard extends Component {
           {this.state.loading && (
             <div className="w-full bg-blue-500 h-1 animate-pulse"></div>
           )}
+
+          {/* Header with Dashboard title and action buttons */}
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-3xl font-bold text-gray-800">Dashboard</h2>
             <div>
@@ -240,7 +248,19 @@ class Dashboard extends Component {
             </div>
           </div>
 
-          {/* Enhanced Product Table */}
+          {/* New Section: Quote and Getting Started button for QR code generation */}
+          <div className="text-center my-8">
+            <h3 className="text-2xl font-bold">Simplify Your Menu, Amplify Your Business</h3>
+            <p className="mt-2">Generate your digital menu QR code and boost your business.</p>
+            <button
+              onClick={this.toggleQRGenerator}
+              className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+            >
+              Getting Started
+            </button>
+          </div>
+
+          {/* Product Table and Search */}
           <div className="overflow-x-auto bg-white rounded-lg shadow">
             <div className="p-4">
               <input
@@ -495,34 +515,57 @@ class Dashboard extends Component {
               </div>
             </div>
           )}
-        </div>
-        <div className="flex justify-end mb-4">
-          <button
-            onClick={this.toggleQRModal}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
-          >
-            Show Menu QR Code
-          </button>
-        </div>
 
-        {/* QR Code Modal */}
-        {this.state.showQRModal && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white rounded-lg p-6">
-              <h2 className="text-2xl font-bold mb-4">Scan to View Menu</h2>
-              <QRCode value={menuUrl} size={200} />
-              <p className="mt-4 text-center">{menuUrl}</p>
-              <div className="flex justify-end mt-4">
+          {/* Existing in-app QR Code Modal */}
+          {this.state.showQRModal && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+              <div className="bg-white rounded-lg p-6">
+                <h2 className="text-2xl font-bold mb-4">Scan to View Menu</h2>
+                <QRCode value={menuUrl} size={200} />
+                <p className="mt-4 text-center">{menuUrl}</p>
+                <div className="flex justify-end mt-4">
+                  <button
+                    onClick={this.toggleQRModal}
+                    className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* New Modal: Django QR Code Generator via iframe */}
+          {this.state.showQRGenerator && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+              <div className="bg-white rounded-lg w-11/12 md:w-3/4 p-6 relative">
                 <button
-                  onClick={this.toggleQRModal}
-                  className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
+                  onClick={this.toggleQRGenerator}
+                  className="absolute top-2 right-2 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
                 >
                   Close
                 </button>
+                <iframe
+                    src="http://localhost:8000/"
+                    width="100%"
+                    height="600px"
+                    title="QR Code Generator"
+                    frameBorder="0"
+                ></iframe>
+
               </div>
             </div>
+          )}
+
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={this.toggleQRModal}
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+            >
+              Show Menu QR Code
+            </button>
           </div>
-        )}
+        </div>
         <Footer />
       </>
     );

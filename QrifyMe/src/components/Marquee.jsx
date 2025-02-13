@@ -10,8 +10,9 @@ export const Maarquee = () => {
       pauseOnHover={false}
       className="bg-gray-200 p-1"
       innerClassName="flex space-x-4 items-center" 
-      // Tighter spacing between items
-    >
+      
+
+>
       <div className="text-sm font-bold text-black-300">
         Simplify Your Menu, Amplify Your Business 🚀
       </div>
