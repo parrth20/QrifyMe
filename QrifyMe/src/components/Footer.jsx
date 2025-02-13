@@ -1,4 +1,5 @@
 import React from "react";
+import fevicon from "../assets/favicon.svg";
 
 export const  Footer = () => {
   return (
@@ -8,7 +9,7 @@ export const  Footer = () => {
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
               <img
-                src="#"
+                src={fevicon}
                 className="mr-3 h-8"
                 alt="QrifyMe logo"
               />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import fevicon from '../assets/favicon.svg';
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -16,11 +17,12 @@ export const Navbar = () => {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           {/* Logo and Title */}
           <Link to="/" className="flex items-center">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
-            />
+          <img
+            src={fevicon}
+            className="mr-3 h-6 sm:h-9"
+            alt="QrifyMe Logo"
+          />
+
             <span className="self-center text-xl font-semibold whitespace-nowrap text-black">
               QrifyMe
             </span>
