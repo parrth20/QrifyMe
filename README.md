@@ -116,89 +116,49 @@ Copy
    ```bash
    git clone https://github.com/your-username/QrifyMe.git
    cd QrifyMe
-Setup the Frontend
-bash
-Copy
-cd frontend
-npm install
+
+
 Setup the Django Backend
-bash
-Copy
+   ```bash
 cd ../backend_django
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux (use venv\Scripts\activate on Windows)
 pip install -r requirements.txt
-Setup the Express/Mongo Backend
-bash
-Copy
+```
+
+## Setup the Express/Mongo Backend
+   ```bash
 cd ../backend_express
 npm install
-Running the Django Backend
-Apply Migrations
-bash
-Copy
-python manage.py migrate
-Start the Server
-bash
-Copy
-python manage.py runserver
-The Django server should now be running at http://127.0.0.1:8000/.
+```
 
-Running the Express/Mongo Backend
+## Running the Services
+   ```bash
+      Django Backend
+      Apply Migrations
+```
+## python manage.py migrate
+Start the Server
+   ```bash
+python manage.py runserver
+The Django server should now be running at http://127.0.0.1:8000/
+```
+
+## Express/Mongo Backend
 Ensure MongoDB is Running
 Make sure you have a local MongoDB instance running or update your connection string in the configuration.
 
-Start the Express Server
-bash
-Copy
+## Start the Express Server
+   ```bash
 npm start
-The Express server should now be running at http://127.0.0.1:3000/ (or the configured port).
+The Express server should now be running at http://127.0.0.1:3000/
 
-Running the Frontend (React + Vite)
+```
+
+## Frontend (React + Vite)
 Start the Development Server
-bash
-Copy
+
+```bash
 cd ../frontend
 npm run dev
-The frontend should now be accessible at http://127.0.0.1:5173/ (or the port specified by Vite).
-
-Configuration
-Environment Variables
-Django: Create a .env file in the Django directory to configure settings
-
-Express: Create a .env file for MongoDB connection and JWT secrets
-
-CORS and API Endpoints
-Ensure CORS is configured on both backends
-
-Update frontend API endpoints to match backend URLs
-
-Contributing
-Fork the repository
-
-Create a new branch:
-
-bash
-Copy
-git checkout -b feature/your-feature-name
-Commit your changes:
-
-bash
-Copy
-git commit -m "Add feature description"
-Push to branch:
-
-bash
-Copy
-git push origin feature/your-feature-name
-Open a Pull Request
-
-License
-MIT License - see LICENSE file for details
-
-Contact
-Author: Parth Bandwal
-
-Email: parthbandwal18@gmail.com
-
-Project Link: QrifyMe on GitHub
+```
