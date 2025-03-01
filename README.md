@@ -81,14 +81,22 @@ The **React + Vite** frontend communicates with both backends to deliver a unifi
 ---
 
 ## Folder Structure
+QrifyMe/
+├── backend_django/ # Django project for QR code generation
+│ ├── manage.py
+│ ├── qrify/ # Main Django app
+│ └── requirements.txt
+├── backend_express/ # Express server for user management and data
+│ ├── app.js
+│ ├── package.json
+│ └── routes/
+├── frontend/ # React + Vite frontend
+│ ├── index.html
+│ ├── src/
+│ └── package.json
+└── README.md
 
-> **Note**: Adjust folder names and structure to match your actual project setup.
-
-QrifyMe/ ├── backend_django/ # Django project for QR code generation │ ├── manage.py │ ├── qrify/ # Main Django app │ └── requirements.txt ├── backend_express/ # Express server for user management and data │ ├── app.js │ ├── package.json │ └── routes/ ├── frontend/ # React + Vite frontend │ ├── index.html │ ├── src/ │ └── package.json └── README.md
-
-markdown
 Copy
-Edit
 
 ---
 
@@ -109,40 +117,30 @@ Edit
    git clone https://github.com/your-username/QrifyMe.git
    cd QrifyMe
 Setup the Frontend
-
 bash
 Copy
-Edit
 cd frontend
 npm install
 Setup the Django Backend
-
 bash
 Copy
-Edit
 cd ../backend_django
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux (use venv\Scripts\activate on Windows)
 pip install -r requirements.txt
 Setup the Express/Mongo Backend
-
 bash
 Copy
-Edit
 cd ../backend_express
 npm install
 Running the Django Backend
 Apply Migrations
-
 bash
 Copy
-Edit
 python manage.py migrate
 Start the Server
-
 bash
 Copy
-Edit
 python manage.py runserver
 The Django server should now be running at http://127.0.0.1:8000/.
 
@@ -151,10 +149,8 @@ Ensure MongoDB is Running
 Make sure you have a local MongoDB instance running or update your connection string in the configuration.
 
 Start the Express Server
-
 bash
 Copy
-Edit
 npm start
 The Express server should now be running at http://127.0.0.1:3000/ (or the configured port).
 
@@ -162,52 +158,47 @@ Running the Frontend (React + Vite)
 Start the Development Server
 bash
 Copy
-Edit
 cd ../frontend
 npm run dev
 The frontend should now be accessible at http://127.0.0.1:5173/ (or the port specified by Vite).
+
 Configuration
 Environment Variables
-Django: Create a .env file in the Django directory to configure settings such as the secret key, allowed hosts, etc.
-Express: Create a .env file in the Express directory to set your MongoDB connection string, JWT secret, and other environment-specific variables.
-CORS and API Endpoints
-Ensure that CORS is properly configured on both backends so the frontend can communicate with them.
-Update API endpoints in your frontend code to point to the correct URLs for the Django and Express servers.
-Contributing
-Contributions are welcome! Please follow these steps:
+Django: Create a .env file in the Django directory to configure settings
 
-Fork the repository.
+Express: Create a .env file for MongoDB connection and JWT secrets
+
+CORS and API Endpoints
+Ensure CORS is configured on both backends
+
+Update frontend API endpoints to match backend URLs
+
+Contributing
+Fork the repository
+
 Create a new branch:
+
 bash
 Copy
-Edit
 git checkout -b feature/your-feature-name
 Commit your changes:
+
 bash
 Copy
-Edit
 git commit -m "Add feature description"
-Push to your branch:
+Push to branch:
+
 bash
 Copy
-Edit
 git push origin feature/your-feature-name
-Open a pull request on GitHub.
+Open a Pull Request
+
 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+MIT License - see LICENSE file for details
 
 Contact
 Author: Parth Bandwal
+
 Email: parthbandwal18@gmail.com
+
 Project Link: QrifyMe on GitHub
-rust
-Copy
-Edit
-
-This single file can serve as the complete documentation for your project. Adjust paths, configurations, and other details as necessary for your specific setup.
-
-
-
-
-
-
