@@ -81,24 +81,23 @@ The **React + Vite** frontend communicates with both backends to deliver a unifi
 ---
 
 ## Folder Structure
+
+```plaintext
 QrifyMe/
-├── backend_django/ # Django project for QR code generation
-│ ├── manage.py
-│ ├── qrify/ # Main Django app
-│ └── requirements.txt
-├── backend_express/ # Express server for user management and data
-│ ├── app.js
-│ ├── package.json
-│ └── routes/
-├── frontend/ # React + Vite frontend
-│ ├── index.html
-│ ├── src/
-│ └── package.json
+├── backend_django/         # Django project for QR code generation
+│   ├── manage.py
+│   ├── qrify/              # Main Django app
+│   └── requirements.txt
+├── backend_express/        # Express server for user management and data
+│   ├── app.js
+│   ├── package.json
+│   └── routes/
+├── frontend/               # React + Vite frontend
+│   ├── index.html
+│   ├── src/
+│   └── package.json
 └── README.md
-
-Copy
-
----
+ ```
 
 ## Getting Started
 
@@ -162,3 +161,8 @@ Start the Development Server
 cd ../frontend
 npm run dev
 ```
+
+## Contact
+Author: Parth Bandwal
+Email: parthbandwal18@gmail.com
+Project Link: https://github.com/parrth20/QrifyMe
