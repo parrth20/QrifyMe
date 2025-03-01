@@ -170,10 +170,12 @@ Open a pull request on GitHub.
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contact
-Author: Your Name
-Email: your.email@example.com
-Project Link: QrifyMe on GitHub
-vbnet
-Copy
-Edit
+
+
+
+```
+### Contact
+## Author: Parth Bandwal
+## Email: parthbandwal18@gmail.com
+## Project Link: [QrifyMe on GitHub](https://github.com/parrth20/QrifyMe)
+
