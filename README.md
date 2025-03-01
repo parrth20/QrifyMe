@@ -1,199 +1,73 @@
+# QrifyMe
 
-QrifyMe
 A full-stack web application that integrates two backends:
+- **Django** for QR code generation logic  
+- **Express + MongoDB** for user management (login/logout, JWTs), product info, and the dashboard
 
-Django for QR code generation logic
-Express with MongoDB for authentication, user management (login/logout, JWTs), product info, and the dashboard
-The frontend is built using React + Vite for a fast and modern user experience.
+The frontend is built with **React + Vite** for a fast and modern user experience.
 
-Table of Contents
-Project Overview
-Features
-Tech Stack
-Architecture
-Folder Structure
-Getting Started
-Prerequisites
-Installation
-Running the Django Backend
-Running the Express/Mongo Backend
-Running the Frontend (React + Vite)
-Configuration
-Contributing
-License
-Contact
-Project Overview
-QrifyMe is a hybrid web application with two distinct backend systems:
+---
 
-Django Backend: Handles QR code creation and related logic.
-Express/Mongo Backend: Manages user authentication (including JWT-based login/logout), product information, user details, and the administrative dashboard.
-The frontend, built with React and Vite, communicates with both backends to provide a seamless user experience.
+## Table of Contents
 
-Features
-QR Code Generation: Generate QR codes for URLs or text using Django.
-User Management: Login, logout, and JWT authentication managed by Express and MongoDB.
-Product & User Information: CRUD operations for product data and user profiles.
-Administrative Dashboard: A comprehensive dashboard for managing data.
-Responsive UI: Optimized for mobile, tablet, and desktop.
-Tech Stack
-Frontend: React + Vite
-QR Code Backend: Django
-User/Auth & Data Backend: Express with MongoDB
-Languages: JavaScript (frontend & Express) & Python (Django)
-Build Tools: npm, Vite
-Architecture
-Django Server:
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Folder Structure](#folder-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Django Backend](#running-the-django-backend)
+  - [Running the Express/Mongo Backend](#running-the-expressmongo-backend)
+  - [Running the Frontend (React + Vite)](#running-the-frontend-react--vite)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Manages QR code creation and related logic.
-Runs on a dedicated port (default: 8000) and exposes APIs for QR code generation.
-Express/Mongo Server:
+---
 
-Handles authentication, including login/logout, JWT-based security, and CRUD operations for products and user information.
-Connects to a MongoDB database for persistent data storage.
-Runs on a separate port (commonly 3000 or any custom configuration).
-Frontend (React + Vite):
+## Project Overview
 
-Interacts with both backends.
-Provides a unified user interface for QR code generation, user management, and dashboard operations.
-Folder Structure
-Below is a suggested structure. Adjust folders and names as needed:
+**QrifyMe** is a hybrid web application with two distinct backend systems:
 
-graphql
-Copy
-Edit
-QrifyMe/
-├─ backend_django/         # Django project for QR code generation
-│   ├─ manage.py
-│   ├─ qrifyme/            # Django settings, apps, etc.
-│   └─ requirements.txt
-├─ backend_express/        # Express server for authentication and data management
-│   ├─ server.js           # Entry point for Express server
-│   ├─ package.json
-│   └─ routes/             # API routes for users, products, etc.
-├─ frontend/               # React + Vite application
-│   ├─ src/
-│   │   ├─ components/
-│   │   ├─ pages/
-│   │   ├─ App.jsx
-│   │   └─ main.jsx
-│   ├─ public/
-│   ├─ package.json
-│   └─ vite.config.js
-├─ .gitignore
-└─ README.md               # This file
-Getting Started
-Prerequisites
-Node.js (v14+ recommended)
-npm or yarn
-Python (3.8+ recommended)
-pip (Python package manager)
-MongoDB (running instance or access to a hosted MongoDB)
-Installation
-Clone the Repository
+1. **Django Backend**: Handles QR code creation and related logic.
+2. **Express/Mongo Backend**: Manages user authentication (including JWT-based login/logout), product info, and user details, as well as the administrative dashboard.
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/QrifyMe.git
-cd QrifyMe
-Setup the Frontend
+The frontend, built with **React + Vite**, communicates with both backends to provide a seamless user experience.
 
-bash
-Copy
-Edit
-cd frontend
-npm install
-Setup the Django Backend
+## Features
 
-bash
-Copy
-Edit
-cd ../backend_django
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux (or use venv\Scripts\activate on Windows)
-pip install -r requirements.txt
-Setup the Express/Mongo Backend
+- **QR Code Generation**: Generate QR codes for URLs or text using Django.
+- **User Management**: Login, logout, and JWT authentication managed by Express and MongoDB.
+- **Product & User Information**: CRUD operations for product data and user profiles.
+- **Administrative Dashboard**: A comprehensive dashboard for managing data.
+- **Responsive UI**: Optimized for mobile, tablet, and desktop.
 
-bash
-Copy
-Edit
-cd ../backend_express
-npm install
-Running the Django Backend
-Apply Migrations
+## Tech Stack
 
-bash
-Copy
-Edit
-python manage.py migrate
-Start the Django Server
+- **Frontend**: [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **QR Code Backend**: [Django](https://www.djangoproject.com/)
+- **User/Auth & Data Backend**: [Express](https://expressjs.com/) + [MongoDB](https://www.mongodb.com/)
+- **Languages**: JavaScript (frontend & Express) & Python (Django)
+- **Build Tools**: npm, Vite
 
-bash
-Copy
-Edit
-python manage.py runserver
-The Django server should now be running at http://127.0.0.1:8000/.
+## Architecture
 
-Running the Express/Mongo Backend
-Ensure MongoDB is running (either locally or remotely, and update your connection string as needed).
+- **Django Server**  
+  - Manages QR code creation logic.  
+  - Runs on a dedicated port (default: 8000) and exposes APIs for QR code generation.
 
-Start the Express Server
+- **Express/Mongo Server**  
+  - Handles authentication, including login/logout and JWT-based security.  
+  - Provides CRUD operations for products and user information.  
+  - Connects to a MongoDB database for persistent data storage.  
+  - Runs on a separate port (commonly 3000 or whichever you configure).
 
-bash
-Copy
-Edit
-npm start
-The Express server should now be running at http://127.0.0.1:3000/ (or the port specified in your configuration).
+- **Frontend (React + Vite)**  
+  - Interacts with both backends.  
+  - Provides a unified interface for QR code generation, user management, and dashboard operations.
 
-Running the Frontend (React + Vite)
-Start the Development Server
+## Folder Structure
 
-bash
-Copy
-Edit
-cd ../frontend
-npm run dev
-The frontend should now be accessible at http://127.0.0.1:5173/ or the port specified by Vite.
-
-Configuration
-Environment Variables:
-
-Create .env files in both the Django and Express directories if needed.
-For Django, configure settings such as database connection strings, secret keys, and allowed hosts.
-For Express, configure your MongoDB connection string, JWT secrets, and other environment-specific variables.
-CORS and API Endpoints:
-
-Ensure that the necessary CORS configurations are in place so that the React frontend can communicate with both backends.
-Update API endpoints in your frontend code to point to the correct backend URLs.
-Contributing
-Contributions are welcome! Follow these steps to contribute:
-
-Fork the repository.
-
-Create a new branch:
-
-bash
-Copy
-Edit
-git checkout -b feature/your-feature-name
-Commit your changes:
-
-bash
-Copy
-Edit
-git commit -m "Add feature description"
-Push to your branch:
-
-bash
-Copy
-Edit
-git push origin feature/your-feature-name
-Open a pull request on GitHub.
-
-License
-This project is licensed under the MIT License – see the LICENSE file for details.
-
-Contact
-Author: Your Name
-Email: your.email@example.com
-Project Link: QrifyMe on GitHub
