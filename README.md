@@ -71,3 +71,109 @@ The frontend, built with **React + Vite**, communicates with both backends to pr
 
 ## Folder Structure
 
+> **Note**: Adjust folder names and structure to match your actual project setup.
+
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** (v14+ recommended)
+- **npm** or **yarn**
+- **Python** (3.8+ recommended)
+- **pip** (Python package manager)
+- **MongoDB** (local or hosted)
+
+### Installation
+
+```bash
+# 1. Clone the Repository
+git clone https://github.com/your-username/QrifyMe.git
+cd QrifyMe
+
+# 2. Setup the Frontend
+cd frontend
+npm install
+
+# 3. Setup the Django Backend
+cd ../backend_django
+python -m venv venv
+source venv/bin/activate  # On macOS/Linux (or use venv\Scripts\activate on Windows)
+pip install -r requirements.txt
+
+# 4. Setup the Express/Mongo Backend
+cd ../backend_express
+npm install
+Running the Django Backend
+Apply Migrations
+bash
+Copy
+Edit
+python manage.py migrate
+Start the Django Server
+bash
+Copy
+Edit
+python manage.py runserver
+The Django server should now be running at http://127.0.0.1:8000/.
+
+Running the Express/Mongo Backend
+Ensure MongoDB is running
+Make sure you have a local MongoDB instance running or update your connection string to point to a remote MongoDB.
+
+Start the Express Server
+bash
+Copy
+Edit
+npm start
+The Express server should now be running at http://127.0.0.1:3000/ (or whichever port you’ve configured).
+
+Running the Frontend (React + Vite)
+Start the Development Server
+bash
+Copy
+Edit
+cd ../frontend
+npm run dev
+The frontend should now be accessible at http://127.0.0.1:5173/ (or the port specified by Vite).
+
+Configuration
+Environment Variables
+
+Create .env files in both the Django and Express directories as needed.
+For Django, configure settings like the secret key, allowed hosts, etc.
+For Express, configure your MongoDB connection string, JWT secret, and other environment-specific variables.
+CORS and API Endpoints
+
+Ensure that CORS is properly configured on both backends so the frontend can communicate with them.
+Update API endpoints in your frontend code to point to the correct URLs for the Django and Express servers.
+Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the repository.
+Create a new branch:
+bash
+Copy
+Edit
+git checkout -b feature/your-feature-name
+Commit your changes:
+bash
+Copy
+Edit
+git commit -m "Add feature description"
+Push to your branch:
+bash
+Copy
+Edit
+git push origin feature/your-feature-name
+Open a pull request on GitHub.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Contact
+Author: Your Name
+Email: your.email@example.com
+Project Link: QrifyMe on GitHub
+vbnet
+Copy
+Edit
