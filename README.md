@@ -174,8 +174,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 
 ```
-### Contact
-## Author: Parth Bandwal
-## Email: parthbandwal18@gmail.com
-## Project Link: [QrifyMe on GitHub](https://github.com/parrth20/QrifyMe)
+## Contact
+ Author: Parth Bandwal
+ Email: parthbandwal18@gmail.com
+ Project Link: [QrifyMe on GitHub](https://github.com/parrth20/QrifyMe)
 
