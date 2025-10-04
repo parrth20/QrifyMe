@@ -8,7 +8,7 @@ A full-stack web application that integrates two backends:
 The frontend is built with **React + Vite** for a fast and modern user experience.
 
 ---
-.
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
